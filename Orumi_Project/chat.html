@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/9e9931aed0.js" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/chat.css">
+    <title>chatbot</title>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <h1>
+            <div class="header-click">
+                <i class="fa-solid fa-globe"></i>
+                    <a href="./index.html">Travel Japan</a>
+            </div>
+        </h1>
+        <ul class="menu">
+            <li><a href="./chat.html">챗봇</a></li>
+            <li><a href="./index.html#chat-box">여행 계획</a></li>
+            <li><a href="./register.html">회원가입</a></li>
+            <li><a href="./login.html">로그인</a></li>
+            <li><form id="logout-form" action="">
+                <button type="submit">로그아웃</button>
+            </form></li>
+        </ul>
+        <a href="#" class="header_toogleBtn">
+            <i class="fas fa-bars"></i>
+        </a>
+        </div>
+        <!-- // header -->
+        
+        <div class="main">
+            <!-- 채팅 -->
+            <div class="chat-wrap">
+                <p class="chat-info">"Travel Japan" 챗봇입니다 !</p>
+                <div class="chat-screen">
+                    <ul class="ai-chat">
+                        <img src="./img/chat.png" alt="chat">
+                        <div class="chat-content">
+                            반갑습니다. 어떤것이 궁금하신가요?
+                        </div>
+                    </ul>
+                    <div class="user-chat">
+                        <div class="chat-content">반갑습니다.</div>
+                    </div>
+                </div>
+                    <form class="chat-form" id="chatbot_form">
+                        <input type="text"  name="chat_msg" placeholder="예시: 2박3일 오사카(일본지역) 여행 일정을 알려줘">
+                        <button id="button" type="submit">전송</button>
+                    </form>
+            </div>
+        </div>
+
+    <!-- footer -->
+    <footer class="user-footer">
+        <div>
+            <div class="icon">
+                <a href="https://github.com/kimyeoju"><i id="icon"class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/yeoju_uj/"><i id="icon"class="fa-brands fa-instagram"></i></a>
+                <a href="https://m.blog.naver.com/d_d0031?fbclid=PAAaaebyCsm_LHxDJRsaHPkBV37CbW8DErKLOhvhiKhOE8rvDjmURfPpoY19k_aem_th_AYRZifwGLHEk9tZ-Te2Zh-GCO6n2ySLsvv8wOPgJtJxTlTBhPdT0BPMWKik6sbAZ8g0" ><i id="icon" class="fa-solid fa-blog"></i></a>
+            </div>
+            Copyright 2023. Travel Japan All rights reserved
+        </div>
+    </footer>
+    <script src="./js/api.js"></script>
+    <script src="./js/chat.js"></script>
+    <script src="./js/chatbot_data.js"></script>
+    <script src="./js/logout.js"></script>
+</body>
+</html>
