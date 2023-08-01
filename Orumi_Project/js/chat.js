@@ -28,7 +28,7 @@ document.getElementById('chatbot_form').addEventListener('submit', async (event)
 
     // 토큰을 쿠키로 저장
     setCookie('token', result.token, 1);
-    window.location.href = './index.html' // 챗봇 페이지 URL로 변경
+    window.location.href = './index.html'
 } catch (error) {
     console.error('Error:', error);
 }
