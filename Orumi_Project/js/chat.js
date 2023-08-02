@@ -92,7 +92,7 @@ const $chatContainer = document.getElementById("chat-container")
         
             const chatbotImage = document.createElement("img");
             chatbotImage.classList.add("chatbot-image");
-            chatbotImage.src = "./img/chat.png";
+            chatbotImage.src = "./Orumi_Project/img/chat.png";
             chatbotImage.alt = "Chatbot";
         
             const answerText = document.createElement("div");
