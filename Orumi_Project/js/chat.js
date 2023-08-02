@@ -1,7 +1,8 @@
 const token = localStorage.getItem('token');
 const $form = document.getElementById("chatbot_form");
-        const $input = document.getElementById("chat_msg");
-        const $chatList = document.querySelector(".user-chat");
+const $input = document.getElementById("chat_msg");
+const $chatList = document.querySelector(".user-chat");
+const $chatContainer = document.getElementById("chat-container")
 
         // openAI API
         let url = 'http://127.0.0.1:8000/chatbot/';
@@ -40,25 +41,43 @@ const $form = document.getElementById("chatbot_form");
         };
 
         // 화면에 질문 그려주는 함수
-        const printQuestion = async () => {
-        if (question) {
+        const printQuestion = (question) => {
             let li = document.createElement("li");
             li.classList.add("question");
-            questionData.map((el) => {
-            li.innerText = el.content;
-            });
+    
+            const questionContainer = document.createElement("div");
+            questionContainer.classList.add("question-container");
+        
+            const questionText = document.createElement("div");
+            questionText.classList.add("chat_content");
+            questionText.textContent = question;
+        
+            questionContainer.appendChild(questionText);
+            li.appendChild(questionContainer);
             $chatList.appendChild(li);
-            questionData = [];
-            question = false;
-        }
         };
 
         // 화면에 답변 그려주는 함수
         const printAnswer = (answer) => {
-        let li = document.createElement("li");
-        li.classList.add("answer");
-        li.innerText = answer;
-        $chatList.appendChild(li);
+            let li = document.createElement("li");
+            li.classList.add("answer");
+        
+            const answerContainer = document.createElement("div");
+            answerContainer.classList.add("answer-container");
+        
+            const chatbotImage = document.createElement("img");
+            chatbotImage.classList.add("chatbot-image");
+            chatbotImage.src = "./img/chat.png";
+            chatbotImage.alt = "Chatbot";
+        
+            const answerText = document.createElement("div");
+            answerText.classList.add("chat_content");
+            answerText.textContent = answer;
+        
+            answerContainer.appendChild(chatbotImage);
+            answerContainer.appendChild(answerText);
+            li.appendChild(answerContainer);
+            $chatList.appendChild(li);
         };
 
         // api 요청보내는 함수

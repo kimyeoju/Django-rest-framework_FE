@@ -1,7 +1,7 @@
 const loginForm = document.getElementById('login-form');
 
     loginForm.addEventListener('submit', function (event) {
-      event.preventDefault();
+    event.preventDefault();
 
     const formData = new FormData(loginForm);
     const email = formData.get('email');
@@ -15,7 +15,7 @@ const loginForm = document.getElementById('login-form');
         console.log('로그인 성공!');
         console.log(response);
         const token = localStorage.setItem('token', response.data.access)
-  
+
         location.href=`./index.html`
     })
     .catch(error => {
