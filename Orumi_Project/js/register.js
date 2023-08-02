@@ -9,7 +9,7 @@ window.onload = function(){
     const email = formData.get('email');
     const password = formData.get('password');
     
-    axios.post('http://127.0.0.1:8000/user/register/', {
+    axios.post('http://13.125.17.136:8000/user/register/', {
         email: email,
         password: password,
     })

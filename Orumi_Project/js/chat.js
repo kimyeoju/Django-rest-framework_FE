@@ -4,14 +4,10 @@ const $input = document.getElementById("chat_msg");
 const $chatList = document.querySelector(".user-chat");
 const $chatContainer = document.getElementById("chat-container")
 
-// ## $form 첫 번째 값 확인
-console.log($form);
-// ## $input 첫 번째 값 확인
-console.log($input);
 
 
         // openAI API
-        let url = 'http://127.0.0.1:8000/chatbot/';
+        let url = 'http://13.125.17.136:8000/chatbot/';
 
         // 사용자의 질문
         let question;
@@ -24,9 +20,6 @@ console.log($input);
         },
         ];
 
-        // ## data 첫 번째 값 확인
-        console.log(data);
-
 
         // 화면에 뿌려줄 데이터, 질문들
         let questionData = [];
@@ -36,8 +29,6 @@ console.log($input);
             question = e.target.value;
         });
 
-        // ## $input 두 번째 값 확인
-        console.log($input);
 
         // 사용자의 질문을 객체를 만들어서 push
         const sendQuestion = (question) => {
@@ -52,8 +43,6 @@ console.log($input);
                 }];
             }
             };
-        console.log("data:" + data)
-        console.log("questiondata:" + questionData)
 
 
         
@@ -75,8 +64,6 @@ console.log($input);
                 $chatList.appendChild(li);
             }
         };
-            // ## question 두 번째 값 확인
-            console.log(question)
         
         // 화면에 로딩 표시를 보여주는 함수
         const showLoadingIndicator = () => {
@@ -116,7 +103,6 @@ console.log($input);
             answerContainer.appendChild(answerText);
             li.appendChild(answerContainer);
             $chatList.appendChild(li);
-            console.log(answer)
             hideLoadingIndicator();
         };
 
@@ -128,7 +114,6 @@ console.log($input);
         });
 
         // api 요청보내는 함수
-        console.log(data)
         const apiPost = async () => {
             showLoadingIndicator();
             
