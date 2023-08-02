@@ -4,6 +4,12 @@ const $input = document.getElementById("chat_msg");
 const $chatList = document.querySelector(".user-chat");
 const $chatContainer = document.getElementById("chat-container")
 
+// ## $form 첫 번째 값 확인
+console.log($form);
+// ## $input 첫 번째 값 확인
+console.log($input);
+
+
         // openAI API
         let url = 'http://127.0.0.1:8000/chatbot/';
 
@@ -14,9 +20,13 @@ const $chatContainer = document.getElementById("chat-container")
         let data = [
         {
             role: "system",
-            content: "assistant는 일본 여행 전문가이다.",
+            content: "assistant는 유능한 일본 여행 전문가이다.",
         },
         ];
+
+        // ## data 첫 번째 값 확인
+        console.log(data);
+
 
         // 화면에 뿌려줄 데이터, 질문들
         let questionData = [];
@@ -25,6 +35,9 @@ const $chatContainer = document.getElementById("chat-container")
         $input.addEventListener("input", (e) => {
             question = e.target.value;
         });
+
+        // ## $input 두 번째 값 확인
+        console.log($input);
 
         // 사용자의 질문을 객체를 만들어서 push
         const sendQuestion = (question) => {
@@ -40,25 +53,28 @@ const $chatContainer = document.getElementById("chat-container")
         }
         };
 
+        
         // 화면에 질문 그려주는 함수
         const printQuestion = () => {
             if (question) {
                 let li = document.createElement("li");
                 li.classList.add("question");
-        
+                
                 const questionContainer = document.createElement("div");
                 questionContainer.classList.add("question-container");
-            
+                
                 const questionText = document.createElement("div");
                 questionText.classList.add("chat_content");
                 questionText.textContent = question;
-            
+                
                 questionContainer.appendChild(questionText);
                 li.appendChild(questionContainer);
                 $chatList.appendChild(li);
             }
         };
-
+        // ## question 두 번째 값 확인
+        console.log(question)
+        
         // 화면에 로딩 표시를 보여주는 함수
         const showLoadingIndicator = () => {
             const loadingIndicator = document.createElement("div");
@@ -97,7 +113,7 @@ const $chatContainer = document.getElementById("chat-container")
             answerContainer.appendChild(answerText);
             li.appendChild(answerContainer);
             $chatList.appendChild(li);
-
+            console.log(answer)
             hideLoadingIndicator();
         };
 
@@ -141,4 +157,11 @@ const $chatContainer = document.getElementById("chat-container")
             printQuestion();
         });
 
-        
+        // 대화 추가함수
+        function addChat(text, isQuestion) {
+            const chatList = document.getElementById("user-chat");
+            const chatItem = document.createElement("li");
+            chatItem.classList.add(isQuestion ? "question" : "answer");
+            chatItem.textContent = text;
+            chatList.appendChild(chatItem);
+        }

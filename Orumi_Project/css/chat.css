@@ -118,7 +118,7 @@
 
 .chat-form {
     background-color: white;
-    margin-top: 10px;
+    margin-top: 30px;
     border-radius: 10px;
     display: flex;
     gap: 10px;
@@ -154,8 +154,8 @@
     border-radius: 100%;
     animation: spin 800ms infinite linear;
     position: fixed;
-    top: 44%;
-    left: 47%;
+    top: 40%;
+    left: 49%;
     transform: translate(-50%, -50%);
     z-index: 995;
 }

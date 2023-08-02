@@ -1,4 +1,4 @@
-
+window.onload = function(){
     const registerForm = document.getElementById('register-form');
     
     registerForm.addEventListener('submit', function (event) {
@@ -25,3 +25,4 @@
         alert("회원가입 실패!",error)
     });
     });
+}

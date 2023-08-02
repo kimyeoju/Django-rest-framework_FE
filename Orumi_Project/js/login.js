@@ -1,3 +1,4 @@
+window.onload = function(){
 
     const loginForm = document.getElementById('login-form');
 
@@ -24,3 +25,4 @@
         alert("로그인 실패",error)
     });
     });
+}
