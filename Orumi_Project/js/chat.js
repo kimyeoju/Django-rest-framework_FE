@@ -41,17 +41,20 @@ console.log($input);
 
         // 사용자의 질문을 객체를 만들어서 push
         const sendQuestion = (question) => {
-        if (question) {
-            data.push({
-            role: "user",
-            content: question,
-            });
-            questionData.push({
-            role: "user",
-            content: question,
-            });
-        }
-        };
+            if (question) {
+                data = [{
+                role: "user",
+                content: question,
+                }];
+                questionData = [{
+                role: "user",
+                content: question,
+                }];
+            }
+            };
+        console.log("data:" + data)
+        console.log("questiondata:" + questionData)
+
 
         
         // 화면에 질문 그려주는 함수
@@ -72,8 +75,8 @@ console.log($input);
                 $chatList.appendChild(li);
             }
         };
-        // ## question 두 번째 값 확인
-        console.log(question)
+            // ## question 두 번째 값 확인
+            console.log(question)
         
         // 화면에 로딩 표시를 보여주는 함수
         const showLoadingIndicator = () => {
