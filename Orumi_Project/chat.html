@@ -42,18 +42,16 @@
                 <div class="chat-screen">
                     <ul class="ai-chat">
                         <img src="./img/chat.png" alt="chat">
-                        <div class="chat-content">
-                            반갑습니다. 어떤것이 궁금하신가요?
-                        </div>
                     </ul>
-                    <div class="user-chat">
-                        <div class="chat-content">반갑습니다.</div>
-                    </div>
+                    <ul class="user-chat">
+                    </ul>
                 </div>
+                <div id="#sform">
                     <form class="chat-form" id="chatbot_form">
-                        <input type="text"  name="chat_msg" placeholder="예시: 2박3일 오사카(일본지역) 여행 일정을 알려줘">
-                        <button id="button" type="submit">전송</button>
+                            <input type="text"  id="chat_msg" placeholder="예시: 2박3일 오사카(일본지역) 여행 일정을 알려줘">
+                            <button class="chat-button" type="submit" >전송</button>
                     </form>
+                </div>
             </div>
         </div>
 
@@ -68,9 +66,8 @@
             Copyright 2023. Travel Japan All rights reserved
         </div>
     </footer>
-    <script type="module" src="./js/api.js"></script>
-    <script type="module" src="./js/chat.js"></script>
-    <script type="module" src="./js/chatbot_data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/chat.js"></script>
     <script src="./js/logout.js"></script>
 </body>
 </html>

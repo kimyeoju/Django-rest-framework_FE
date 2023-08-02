@@ -1,26 +1,26 @@
-const baseUrl = 'http://127.0.0.1:8000/user';
+const registerForm = document.getElementById('register-form');
 
- // 회원가입
-document.getElementById('register-form').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = {
-        email: formData.get('email'),
-        password: formData.get('password'),
-    };
+    loginForm.addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent the default form submission
 
-    try {
-        const response = await fetch(`${baseUrl}/register/`, {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+      // Get form data
+    const formData = new FormData(registerForm);
+    const email = formData.get('email');
+    const password = formData.get('password');
+
+    axios.post('http://127.0.0.1:8000/user/register/', {
+        email: email,
+        password: password,
+    })
+    .then(response => {
+        console.log('회원가입 성공!');
+        console.log(response);
+        const token = localStorage.setItem('token', response.data.access)
+        // 페이지전환
+        location.href=`./login.html`
+    })
+    .catch(error => {
+        console.error('Registration failed:', error);
+        alert("회원가입 실패!",error)
     });
-    window.location.href = './login.html' // 로그인 페이지로 이동
-    const result = await response.json();
-    console.log('회원가입 결과:', result);
-    } catch (error) {
-    console.error('Error:', error);
-    }
-});
+    });

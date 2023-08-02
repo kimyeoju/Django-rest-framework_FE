@@ -70,28 +70,27 @@
     margin-left: 70px;
 }
 
-.chat-form {
+/* .chat-form {
     background-color: white;
-    margin-top: 40px;
+    margin-top: 20px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     gap: 20px;
     padding: 10px;
+} */
+
+#sform{
+    display: inline-block;
+
 }
 
-.chat-form textarea {
-    resize: none;
-    flex-grow: 1;
-    height: 60px;
-    border: 0;
-}
 
 .chat-button {
     background-color: #6A7BA2;
     border: 0;
     color: white;
-    width: 80px;
+    width: 78px;
     height: 32px;
     border-radius: 4px;
 }
