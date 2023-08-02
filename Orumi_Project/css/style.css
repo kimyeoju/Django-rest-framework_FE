@@ -139,6 +139,20 @@ form > div {
 }
 
 
+/* 상단 로그아웃 버튼 css */
+
+.logout-button{
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: 15px;
+    cursor: pointer;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+
 /* 회원가입 페이지 */
 
 .register-wrapper{

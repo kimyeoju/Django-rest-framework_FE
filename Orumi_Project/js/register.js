@@ -9,6 +9,7 @@ window.onload = function(){
     const email = formData.get('email');
     const password = formData.get('password');
     
+    // django 퍼블릭 주소 연결 
     axios.post('http://13.125.17.136:8000/user/register/', {
         email: email,
         password: password,

@@ -7,6 +7,7 @@ const $chatContainer = document.getElementById("chat-container")
 
 
         // openAI API
+        // django 퍼블릭 주소 연결 
         let url = 'http://13.125.17.136:8000/chatbot/';
 
         // 사용자의 질문
