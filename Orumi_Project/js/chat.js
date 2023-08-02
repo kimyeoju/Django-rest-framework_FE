@@ -41,21 +41,40 @@ const $chatContainer = document.getElementById("chat-container")
         };
 
         // 화면에 질문 그려주는 함수
-        const printQuestion = (question) => {
-            let li = document.createElement("li");
-            li.classList.add("question");
-    
-            const questionContainer = document.createElement("div");
-            questionContainer.classList.add("question-container");
+        const printQuestion = () => {
+            if (question) {
+                let li = document.createElement("li");
+                li.classList.add("question");
         
-            const questionText = document.createElement("div");
-            questionText.classList.add("chat_content");
-            questionText.textContent = question;
-        
-            questionContainer.appendChild(questionText);
-            li.appendChild(questionContainer);
-            $chatList.appendChild(li);
+                const questionContainer = document.createElement("div");
+                questionContainer.classList.add("question-container");
+            
+                const questionText = document.createElement("div");
+                questionText.classList.add("chat_content");
+                questionText.textContent = question;
+            
+                questionContainer.appendChild(questionText);
+                li.appendChild(questionContainer);
+                $chatList.appendChild(li);
+            }
         };
+
+        // 화면에 로딩 표시를 보여주는 함수
+        const showLoadingIndicator = () => {
+            const loadingIndicator = document.createElement("div");
+            loadingIndicator.classList.add("loading-indicator");
+            loadingIndicator.id = "loading-indicator";
+            $chatContainer.parentNode.insertBefore(loadingIndicator, $chatContainer);
+        };
+
+        // 화면에 로딩 표시를 숨기는 함수
+        const hideLoadingIndicator = () => {
+            const loadingIndicator = document.getElementById("loading-indicator");
+            if (loadingIndicator) {
+            loadingIndicator.remove();
+            }
+        }
+
 
         // 화면에 답변 그려주는 함수
         const printAnswer = (answer) => {
@@ -78,11 +97,22 @@ const $chatContainer = document.getElementById("chat-container")
             answerContainer.appendChild(answerText);
             li.appendChild(answerContainer);
             $chatList.appendChild(li);
+
+            hideLoadingIndicator();
         };
+
+        // 챗봇 인사말
+        const chatbotHello = `무엇을 도와드릴까요 ?`;
+
+        window.addEventListener("DOMContentLoaded", () => {
+            printAnswer(chatbotHello);
+        });
 
         // api 요청보내는 함수
         console.log(data)
         const apiPost = async () => {
+            showLoadingIndicator();
+            
         const result = await fetch(url, {
             method: "POST",
             headers: {
@@ -97,7 +127,8 @@ const $chatContainer = document.getElementById("chat-container")
             printAnswer(res);
             })
             .catch((err) => {
-            console.log(err);
+                console.log(err);
+                hideLoadingIndicator();
             });
         };
 
@@ -109,3 +140,5 @@ const $chatContainer = document.getElementById("chat-container")
             apiPost();
             printQuestion();
         });
+
+        

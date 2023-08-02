@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="./css/chat.css">
     <title>chatbot</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
     <!-- header -->
@@ -41,22 +43,21 @@
                 <p class="chat-info">"Travel Japan" 챗봇입니다 !</p>
                 <div class="chat-screen">
                     <ul class="ai-chat">
-                        <!-- <img src="./img/chat.png" alt="chat"> -->
-                        <li class="chat-content">
-                            무엇을 도와드릴까요 ?
-                        </li>
                     </ul>
                     <ul class="user-chat">
                         <li></li>
                     </ul>
                 </div>
-                <div id="#sform">
                     <form class="chat-form" id="chatbot_form">
-                            <input type="text"  id="chat_msg" placeholder="예시: 2박3일 오사카(일본지역) 여행 일정을 알려줘">
+                            <textarea id="chat_msg" placeholder="2박3일 도쿄(일본지역)여행 일정을 계획해줘"></textarea>
                             <button class="chat-button" type="submit" >전송</button>
                     </form>
-                </div>
             </div>
+        </div>
+        
+        <!-- 로딩 표시 -->
+        <div class="loading-indicator" id="loading-indicator" style="display:none;">
+            <div class="loading-text"></div>
         </div>
 
     <!-- footer -->
@@ -70,8 +71,14 @@
             Copyright 2023. Travel Japan All rights reserved
         </div>
     </footer>
+    <!-- // footer -->
+
+    <!-- js 연동 -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js/chat.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/register.js"></script>
     <script src="./js/logout.js"></script>
+    <!-- // js 연동 -->
 </body>
 </html>

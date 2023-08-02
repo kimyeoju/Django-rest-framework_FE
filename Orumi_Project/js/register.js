@@ -1,13 +1,14 @@
-const registerForm = document.getElementById('register-form');
 
-    loginForm.addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent the default form submission
-
+    const registerForm = document.getElementById('register-form');
+    
+    registerForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    
       // Get form data
     const formData = new FormData(registerForm);
     const email = formData.get('email');
     const password = formData.get('password');
-
+    
     axios.post('http://127.0.0.1:8000/user/register/', {
         email: email,
         password: password,
